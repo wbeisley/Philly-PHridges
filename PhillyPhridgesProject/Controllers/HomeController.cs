@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication3.Models;
+using PhillyFridges.Models;
 
-namespace WebApplication3.Controllers
+namespace PhillyFridges.Controllers
 {
     public class HomeController : Controller
     {
