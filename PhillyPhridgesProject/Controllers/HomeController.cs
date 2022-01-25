@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using PhillyFridges.Models;
+using System.IO;
+using CsvHelper;
+using System.Globalization;
 
 namespace PhillyFridges.Controllers
 {
@@ -20,7 +23,9 @@ namespace PhillyFridges.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            using var reader = new StreamReader(@"C:\Users\gothd\source\repos\Philly-PHridges\PhillyPhridgesProject\Content\PhillyPhridges.csv");
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            return View(csv.GetRecords<CSVHelperModel>().ToList());
         }
 
         public IActionResult Privacy()
@@ -33,5 +38,7 @@ namespace PhillyFridges.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
     }
 }

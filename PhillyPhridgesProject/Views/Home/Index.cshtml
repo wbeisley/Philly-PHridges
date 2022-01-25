@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<CSVHelperModel>
+@{  
     ViewData["Title"] = "Home Page";
 }
 
@@ -13,6 +14,8 @@
         }
     </style>
     <script>
+
+
         // Initialize and add the map
         function initMap() {
             // The location of City Hall
@@ -22,6 +25,7 @@
                 zoom: 12,
                 center: cityHall,
             });
+
             //Add a single marker
             //const peopleFridge = { lat: 39.9518312936344, lng: -75.22651488935034}
             //// The marker, positioned at People's Fridge
@@ -31,11 +35,13 @@
             //});
 
             //Add the array of locations with information to populate info window
-            var locations = [
-                ["Mama Tee Fridge </br> 1255 E Palmer St, Philadelphia, PA 19125 </br> http://www.mamateefridge.com/", 39.97247311762593, -75.12901550366676, 3],
-                ["South Philly Community Fridge </br> 1229 S 6th Street, Philadelphia PA, 19147 </br> https://southphillyfridge.com/", 39.93295059667569, -75.1542355470229, 2],
-                ["People's Fridge </br> 511 S 52nd St, Philadelphia, PA 19143 </br> https://www.facebook.com/thepeoplesfridge215/", 39.9518312936344, -75.22651488935034, 1]
-            ];
+            //var locations = [
+            //    ["Mama Tee Fridge </br> 1255 E Palmer St, Philadelphia, PA 19125 </br> http://www.mamateefridge.com/", 39.97247311762593, -75.12901550366676, 3],
+            //    ["South Philly Community Fridge </br> 1229 S 6th Street, Philadelphia PA, 19147 </br> https://southphillyfridge.com/", 39.93295059667569, -75.1542355470229, 2],
+            //    ["People's Fridge </br> 511 S 52nd St, Philadelphia, PA 19143 </br> https://www.facebook.com/thepeoplesfridge215/", 39.9518312936344, -75.22651488935034, 1]
+            //];
+
+            var locations = @Json.Serialize(Model);
 
             //Add the info window that pops up when you click the marker
             var infowindow = new google.maps.InfoWindow();
@@ -45,18 +51,21 @@
             //For loop to populate the markers on the map
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
                     map: map
                 });
 
                 // A listener to brings up the infowindow when you click the marker
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(locations[i][0]);
+                        infowindow.setContent(locations[i].sponsor);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
             }
+
+
+
         }
     </script>
 </head>
@@ -66,7 +75,7 @@
     <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=INSERT_API_KEY_HERE&callback=initMap&libraries=&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa4r5G-dbRoXyoM1jRd8LzIrRm1zY6OUo&callback=initMap&libraries=&v=weekly"
             async></script>
 </body>
 </html>
