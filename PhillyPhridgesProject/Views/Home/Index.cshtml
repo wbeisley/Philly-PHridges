@@ -58,7 +58,7 @@
                 // A listener to brings up the infowindow when you click the marker
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(locations[i].sponsor);
+                        infowindow.setContent(locations[i].sponsor + "<br>" + locations[i].address + "<br>" + locations[i].website + "<br>" + locations[i].instagram);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
@@ -68,6 +68,7 @@
 
         }
     </script>
+
 </head>
 <body>
     <h3>Philly Phridges</h3>
