@@ -1,6 +1,6 @@
 using System;
 
-namespace PhillyFridges.Models
+namespace PhillyPhridges.Models
 {
     public class ErrorViewModel
     {
