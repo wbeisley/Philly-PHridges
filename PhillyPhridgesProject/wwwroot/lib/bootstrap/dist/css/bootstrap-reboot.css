@@ -329,3 +329,8 @@ template {
   display: none !important;
 }
 /*# sourceMappingURL=bootstrap-reboot.css.map */
+
+h3 {
+    text-align: center;
+    color: #FF851B
+}

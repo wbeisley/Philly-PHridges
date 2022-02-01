@@ -52,7 +52,7 @@
                 // A listener that brings up the infowindow when you click the marker
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(`${locations[i].sponsor} <br> ${locations[i].address} <br> ${locations[i].website} <br> ${locations[i].instagram}`);
+                        infowindow.setContent(`${locations[i].sponsor} <br> ${locations[i].address} <br> <a href=${locations[i].website}>${locations[i].website}</a> <br> ${locations[i].instagram}`);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
