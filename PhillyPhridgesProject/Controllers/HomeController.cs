@@ -23,7 +23,7 @@ namespace PhillyFridges.Controllers
 
         public IActionResult Index()
         {
-            using var reader = new StreamReader(@"C:\Users\gothd\source\repos\Philly-PHridges\PhillyPhridgesProject\Content\PhillyPhridges.csv");
+            using var reader = new StreamReader(@"Content\PhillyPhridges.csv");
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             return View(csv.GetRecords<CSVHelperModel>().ToList());
         }
