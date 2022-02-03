@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using PhillyFridges.Models;
+using PhillyPhridges.Models;
 using System.IO;
 using CsvHelper;
 using System.Globalization;
 
-namespace PhillyFridges.Controllers
+namespace PhillyPhridges.Controllers
 {
     public class HomeController : Controller
     {

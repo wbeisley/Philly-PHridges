@@ -39,13 +39,7 @@
             //    map: map,
             //});
 
-            //Add the array of locations with information to populate info window
-            //var locations = [
-            //    ["Mama Tee Fridge </br> 1255 E Palmer St, Philadelphia, PA 19125 </br> http://www.mamateefridge.com/", 39.97247311762593, -75.12901550366676, 3],
-            //    ["South Philly Community Fridge </br> 1229 S 6th Street, Philadelphia PA, 19147 </br> https://southphillyfridge.com/", 39.93295059667569, -75.1542355470229, 2],
-            //    ["People's Fridge </br> 511 S 52nd St, Philadelphia, PA 19143 </br> https://www.facebook.com/thepeoplesfridge215/", 39.9518312936344, -75.22651488935034, 1]
-            //];
-
+            //Allows the CSV file to be accessible 
             var locations = @Json.Serialize(Model);
 
             //Add the info window that pops up when you click the marker
@@ -60,19 +54,18 @@
                     map: map
                 });
 
-                // A listener to brings up the infowindow when you click the marker
+                // A listener that brings up the infowindow when you click the marker
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(locations[i].sponsor);
+                        infowindow.setContent(`${locations[i].sponsor} <br> ${locations[i].address} <br> <a href=${locations[i].website}>${locations[i].website}</a> <br> ${locations[i].instagram}`);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
             }
 
-
-
         }
     </script>
+
 </head>
 <body>
     <h3>Philly Phridges</h3>

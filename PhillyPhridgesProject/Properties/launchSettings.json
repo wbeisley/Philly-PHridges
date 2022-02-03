@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplication3": {
+    "PhillyPhridges": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

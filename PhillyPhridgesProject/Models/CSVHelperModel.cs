@@ -7,7 +7,7 @@ using System.Globalization;
 using System.IO;
 using CsvHelper.Configuration.Attributes;
 
-namespace PhillyFridges.Models
+namespace PhillyPhridges.Models
 {
     public class CSVHelperModel
     {
