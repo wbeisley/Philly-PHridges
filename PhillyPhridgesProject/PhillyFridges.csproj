@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'PhillyPhridges' " />
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="27.2.1" />
   </ItemGroup>
