@@ -23,7 +23,7 @@ namespace PhillyPhridges.Controllers
 
         public IActionResult Index()
         {
-            using var reader = new StreamReader(@"Content\PhillyPhridges.csv");
+            using var reader = new StreamReader($"Content{Path.DirectorySeparatorChar}PhillyPhridges.csv");
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             return View(csv.GetRecords<CSVHelperModel>().ToList());
         }
@@ -32,6 +32,12 @@ namespace PhillyPhridges.Controllers
         {
             return View();
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
