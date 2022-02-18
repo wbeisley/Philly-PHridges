@@ -57,27 +57,27 @@
                 // A listener that brings up the infowindow when you click the marker
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
-                        infowindow.setContent(`${locations[i].sponsor} <br> ${locations[i].address} <br> <a href=${locations[i].website}>${locations[i].website}</a> <br> ${locations[i].instagram}`);
+                        var location = locations[i]
+                        infowindow.setContent(`${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> ${location.instagram}`);
                         infowindow.open(map, marker);
+                        copyMapInfo(location);
                     }
                 })(marker, i));
             }
 
         }
 
-        //Function to display information under Map
-        //function copyMapInfo() {
-
-        //set up variable for display
-        //      string 
-
-        //listen for click to match selected marker
-        //    google.maps.event.addListener
-
-        //    //find corresponding information from json
-
-        //    //While marker is clicked, return fields to be displayed in form
-        //}
+       
+        /**
+         * Function to display information under Map
+         * @@param location copying marker information
+        */
+        function copyMapInfo(location) {
+            
+            
+            document.getElementById('information').innerHTML = `${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> ${location.instagram}`
+            
+        }
     </script>
 
 </head>
@@ -91,16 +91,7 @@
             async></script>
 
     <!--Form for showing additional information -->
-    <div id="information">
-        <br>
-        <h2>
-            <label name="locations[i].sponsor">Sponsor</label><br>
-        </h2>
-        <h3>
-            <label>Address</label><br>
-            <label>Website</label><br>
-        </h3>
-        
+    <div id="information">       
     </div>
 
 </body>
