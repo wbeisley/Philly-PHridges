@@ -58,7 +58,7 @@
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
                     return function () {
                         var location = locations[i]
-                        infowindow.setContent(`${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> ${location.instagram}`);
+                        infowindow.setContent(`${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> <a href='https://www.instagram.com/${location.instagram}'>@@${location.instagram}</a>`);
                         infowindow.open(map, marker);
                         copyMapInfo(location);
                     }
@@ -75,7 +75,7 @@
         function copyMapInfo(location) {
             
             
-            document.getElementById('information').innerHTML = `${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> ${location.instagram}`
+            document.getElementById('information').innerHTML = `${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> <a href='https://www.instagram.com/${location.instagram}'>@@${location.instagram}</a>`
             
         }
     </script>
