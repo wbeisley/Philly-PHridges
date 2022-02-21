@@ -17,6 +17,10 @@
         #information {
             text-align: center
         }
+
+       #phillyphridge, #subhead {
+           text-align: center;
+       }
     </style>
     <script>
 
@@ -30,6 +34,8 @@
                 zoom: 12,
                 center: cityHall,
             });
+
+            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
             //Add a single marker
             //const peopleFridge = { lat: 39.9518312936344, lng: -75.22651488935034}
@@ -51,7 +57,8 @@
             for (i = 0; i < locations.length; i++) {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-                    map: map
+                    map: map,
+                    icon: "/css/minifridgemarkersmall.png"
                 });
 
                 // A listener that brings up the infowindow when you click the marker
@@ -82,7 +89,12 @@
 
 </head>
 <body>
-    <h3>Philly Phridges</h3>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 id="phillyphridge" class="display-4">Philly Phridges</h1>
+            <h4 id="subhead" class="lead">A community fridge locator for the City of Philadelphia</h4>
+        </div>
+    </div>
     <!--The div element for the map -->
     <div id="map"></div>
 
