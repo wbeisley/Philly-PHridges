@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="~/css/favicon.ico" />
     <style type="text/css">
         /* Set the size of the div element that contains the map */
         #map {
@@ -18,13 +19,13 @@
             text-align: center
         }
 
-       #phillyphridge, #subhead {
-           text-align: center;
-       }
+        #phillyphridge, #subhead {
+            text-align: center;
+        }
 
         .jumbotron {
             background-image: url("../css/phillyphridgesimgheader.png");
-            background-size:100% 100%;
+            background-size: 100% 100%;
         }
     </style>
     <script>
@@ -50,7 +51,7 @@
             //    map: map,
             //});
 
-            //Allows the CSV file to be accessible 
+            //Allows the CSV file to be accessible
             var locations = @Json.Serialize(Model);
 
             //Add the info window that pops up when you click the marker
@@ -79,18 +80,19 @@
 
         }
 
-       
+
         /**
          * Function to display information under Map
          * @@param location copying marker information
         */
         function copyMapInfo(location) {
-            
-            
+
+
             document.getElementById('information').innerHTML = `${location.sponsor} <br> ${location.address} <br> <a href=${location.website}>${location.website}</a> <br> <a href='https://www.instagram.com/${location.instagram}'>@@${location.instagram}</a>`
-            
+
         }
     </script>
+
 
 </head>
 <body>
