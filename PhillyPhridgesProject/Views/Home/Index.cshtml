@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" type="image/x-icon" href="~/css/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/css/favicon.ico" />
     <style type="text/css">
         /* Set the size of the div element that contains the map */
         #map {
@@ -16,7 +16,7 @@
 
         /* Set the alignment of text for further information */
         #information {
-            text-align: center
+            text-align: center;
         }
 
         #phillyphridge, #subhead {
@@ -26,7 +26,19 @@
         .jumbotron {
             background-image: url("../css/phillyphridgesimgheader.png");
             background-size: 100% 100%;
+            text-align: center;
+
         }
+
+        #imgleft {
+            float: left;
+        }
+
+        #imgright {
+            float: right;
+        }
+
+
     </style>
     <script>
 
@@ -95,13 +107,37 @@
 
 
 </head>
+
 <body>
+    @*Old jumbotron header.*@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 id="phillyphridge" class="display-4">Philly Phridges</h1>
-            <h4 id="subhead" class="lead">A community fridge locator for the City of Philadelphia</h4>
+            <h4 id="subhead" class="lead">A community fridge locator <br /> for the City of Philadelphia</h4>
         </div>
     </div>
+
+    @* New attempt at building the header *@
+    @*<div class="row">
+        <div class="col-md-4">
+            <a href="#" class="img-responsive">
+                <img src="~/css/fridgeleft.png" alt="...">
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <h1 id="phillyphridge" class="display-4">Philly Phridges</h1>
+            <h4 id="subhead" class="lead">A community fridge locator for the City of Philadelphia</h4>
+        </div>
+
+        <div class="col-md-4">
+            <a href="#" class="img-responsive">
+                <img src="~/css/fridgeright.png" alt="...">
+            </a>
+        </div>
+    </div>*@
+
+
     <!--The div element for the map -->
     <div id="map"></div>
 
@@ -113,7 +149,7 @@
     <br />
     <div class="container-fluid">
         <div id="information" class="lead">
-            <h4 class="lead">Click a <img src="/css/minifridgemarkersmall.png" width="18" height="38"/> above to see more information</h4>
+            <h4 class="lead">Click a <img src="/css/minifridgemarkersmall.png" width="18" height="38" /> above to see more information</h4>
         </div>
     </div>
 
